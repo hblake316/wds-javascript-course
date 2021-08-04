@@ -1,38 +1,74 @@
-// value types - strings, booleans, numbers
-let a = 10
-let b = a
+// array push
+const a = ["a", "b", "c", "d", "e"];
+a.push("f");
+a.push(["true", false]);
+console.log(a);
+console.log(a[5]);
+console.log(a[6][0]);
+console.log(a[6][1]);
 
-console.log('a = ' + a, 'b = ' + b)
+// array length
+console.log(a.length);
 
-b = b + 1
+// array forEach
+const numbers = [1, 2, 3, 4, 5];
+numbers.forEach((number, index) => {
+  console.log(index + ": " + number);
+});
 
-console.log('a = ' + a, 'b = ' + b)
+// array map - returns a new array with the function performed
+const newNumbers = numbers.map((number) => {
+  return number * 2;
+});
+console.log(numbers);
+console.log(newNumbers);
 
-// reference types - arrays, objects
-// reference an address (location) in memory
-let d = [1, 2]
-let e = d
+// array filter - returns a new array filtered on the function
+const filteredNumbers = numbers.filter((number) => {
+  return number < 3;
+});
+console.log(filteredNumbers);
 
-console.log('d = ' + JSON.stringify(d), 'e = ' + JSON.stringify(e))
+// array find - returns first item that meets function criteria
+const findNumber = numbers.find((number) => {
+  return number > 2;
+});
+console.log(findNumber);
+console.log(typeof findNumber);
 
-e[0] = 3
-e.push(4)
+// array some returns true if some items match this function
+const isTrue = numbers.some((number) => {
+  return number > 8;
+});
+console.log(isTrue);
 
-console.log('d = ' + JSON.stringify(d), 'e = ' + JSON.stringify(e))
+// array every returns true if every item match this function
+const isTrue2 = numbers.every((number) => {
+  return number > 2;
+});
+console.log(isTrue2);
 
-// equality of reference types
-const room1 = ['Blake', 2]
-const room2 = ['Blake', 2]
-console.log(room1 === room2)
+// array reduce - reduces array to a single value
+// takes two parameters and an initial value
+const reduceNumbers = numbers.reduce((sum, number) => {
+  return sum + number;
+}, 0);
+console.log(reduceNumbers);
 
-// changing what is stored in an object at a memory location
-const bag = ['blueberries', 'mangoes']
-bag.push('almond milk')
-console.log(bag)
+const items = [
+  { price: 10 },
+  { price: 20 },
+  { price: 14 },
+  { price: 1 },
+  { price: 6 }
+];
 
-// changing the object structure stored at a memory location
-const person = {
-  name: 'Blake',
-}
-person = { name: 'Blake', favoriteNumber: 316 }
-console.log(person)
+const total = items.reduce((sum, item) => {
+  return sum + item.price;
+}, 0);
+
+console.log(total);
+
+// array includes - returns if array includes item
+const isTrue3 = numbers.includes(3);
+console.log(isTrue3);
